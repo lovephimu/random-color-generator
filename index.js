@@ -8,10 +8,16 @@ const newRandomColor = randomColor();
 
 const hueInput = process.argv[2];
 const luminosityInput = process.argv[3];
-const specialColor = randomColor({
-  luminosity: luminosityInput,
-  hue: hueInput,
-});
+let specialColor = '';
+
+if (hueInput && luminosityInput) {
+  specialColor = randomColor({
+    luminosity: luminosityInput,
+    hue: hueInput,
+  });
+} else if (hueInput) {
+  specialColor = randomColor({ hue: hueInput });
+}
 
 // I have two values now - if special Color not null then choose and assign to block color
 let finalColor = '';
@@ -23,9 +29,9 @@ if (specialColor) {
 
 // transform hex to rgb to make coloring in terminal possible
 
-const r = parseInt(newRandomColor.slice(1, 3), 16);
-const b = parseInt(newRandomColor.slice(3, 5), 16);
-const g = parseInt(newRandomColor.slice(5, 7), 16);
+const r = parseInt(finalColor.slice(1, 3), 16);
+const g = parseInt(finalColor.slice(3, 5), 16);
+const b = parseInt(finalColor.slice(5, 7), 16);
 
 // set up ansi and rgb
 
@@ -40,7 +46,7 @@ console.log(
 ###############################
 ###############################
 #####                     #####
-#####       ${newRandomColor}       #####
+#####       ${finalColor}       #####
 #####                     #####
 ###############################
 ###############################
@@ -52,6 +58,7 @@ console.log(
 
 // tests
 console.log(hueInput); // returns undefined
-console.log(hueInput + luminosityInput); // returns Nan
-console.log(newRandomColor);
-console.log(specialColor);
+console.log(luminosityInput); // returns Nan
+console.log('This is the random color' + newRandomColor);
+console.log('This is the special color' + specialColor);
+console.log('This is the final color ' + finalColor);
