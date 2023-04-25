@@ -2,13 +2,24 @@
 
 import randomColor from 'randomcolor'; // import the script
 
-// random color generator
-
-const hue = '';
-const luminosity = '';
+// random color generator and necessary variables
 
 const newRandomColor = randomColor();
-const specialColor = randomColor({ luminosity: 'light', hue: 'blue' });
+
+const hueInput = process.argv[2];
+const luminosityInput = process.argv[3];
+const specialColor = randomColor({
+  luminosity: luminosityInput,
+  hue: hueInput,
+});
+
+// I have two values now - if special Color not null then choose and assign to block color
+let finalColor = '';
+if (specialColor) {
+  finalColor = specialColor;
+} else {
+  finalColor = newRandomColor;
+}
 
 // transform hex to rgb to make coloring in terminal possible
 
@@ -37,9 +48,10 @@ console.log(
     ansiEnd,
 );
 
-// userInput - accept arguments with process.argv
+// userInput - accept arguments with process.argv called hue and luminosity
 
 // tests
-console.log(hue + luminosity);
+console.log(hueInput); // returns undefined
+console.log(hueInput + luminosityInput); // returns Nan
 console.log(newRandomColor);
 console.log(specialColor);
