@@ -12,7 +12,7 @@ let specialColor = '';
 
 if (hueInput === 'ask') {
   console.log(
-    `\x1b[38;2;0;255;127mYou can do it like this instead: $ node index blue dark\x1b[0m`,
+    `\x1b[38;2;0;255;127mYou can do it like this instead: $ node index.js blue dark\x1b[0m`,
   ); // rgb(0,255,127)
 } else if (hueInput && luminosityInput) {
   specialColor = randomColor({
