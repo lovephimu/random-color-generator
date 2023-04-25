@@ -9,11 +9,14 @@ const newRandomColor = randomColor();
 const hueInput = process.argv[2];
 const luminosityInput = process.argv[3];
 let specialColor = '';
+let finalColor = '';
 
 if (hueInput === 'ask') {
   console.log(
     `\x1b[38;2;0;255;127mYou can do it like this instead: $ node index.js blue dark\x1b[0m`,
-  ); // rgb(0,255,127)
+  );
+  process.exit(0);
+  // rgb(0,255,127)
 } else if (hueInput && luminosityInput) {
   specialColor = randomColor({
     luminosity: luminosityInput,
@@ -24,7 +27,6 @@ if (hueInput === 'ask') {
 }
 
 // I have two values now - if special Color not null then choose and assign to block color
-let finalColor = '';
 if (specialColor) {
   finalColor = specialColor;
 } else {
