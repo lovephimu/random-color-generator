@@ -55,10 +55,3 @@ console.log(
 );
 
 // userInput - accept arguments with process.argv called hue and luminosity
-
-// tests
-console.log(hueInput); // returns undefined
-console.log(luminosityInput); // returns Nan
-console.log('This is the random color' + newRandomColor);
-console.log('This is the special color' + specialColor);
-console.log('This is the final color ' + finalColor);
