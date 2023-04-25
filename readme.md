@@ -1,44 +1,24 @@
 # Random Color Generator
 
-on open:
-generate a block of 31x9 # characters colored with a random color
+This code will generate random and specific colors based on the user input! Additionally the color will be presented in a fun 31x9 # character block with its hex code in the center.
 
-libraries & special code:
-randomcolor - npm
-ANSI escape codes, for example
+Hex color code generation and translation of words into hex code are based on the randomcolor npm package.
+
+Colors in the terminal are shown using ANSI syntax.
+
+## How to use
+
+There are two ways of using this code:
+_The random way_
 
 ```bash
-\x1b[38;2;255;165;0mHello, world!\x1b[0m
+$ node index.js
 ```
 
-```bash
-// Returns a hex code for an attractive color
-randomColor();
-```
+just start the code using this basic node command
+
+_The word-y way_
 
 ```bash
-
-building block
-
-###############################
-###############################
-###############################
-#####                     #####
-#####       #edff28       #####
-#####                     #####
-###############################
-###############################
-###############################
-
-```
-
-on open with arguments:
-generate a block of 31x9 # characters colored with a specific color
-
-```bash
-// Returns a hex code for a light blue
-randomColor({
-   luminosity: 'light',
-   hue: 'blue'
-});
+$ node index.js blue(or some other hue) dark(or some other luminosity)
 ```
