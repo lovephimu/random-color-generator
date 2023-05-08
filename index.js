@@ -35,13 +35,13 @@ if (specialColor) {
 
 // transform hex to rgb to make coloring in terminal possible
 
-const r = parseInt(finalColor.slice(1, 3), 16);
-const g = parseInt(finalColor.slice(3, 5), 16);
-const b = parseInt(finalColor.slice(5, 7), 16);
+const redValue = parseInt(finalColor.slice(1, 3), 16);
+const greenValue = parseInt(finalColor.slice(3, 5), 16);
+const blueValue = parseInt(finalColor.slice(5, 7), 16);
 
 // set up ansi and rgb
 
-const ansiStart = `\x1b[38;2;${r};${g};${b}m`;
+const ansiStart = `\x1b[38;2;${redValue};${greenValue};${blueValue}m`;
 const ansiEnd = `\x1b[0m`;
 
 // build # block
